@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script
+      src="http://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="../static/css/materialize.min.css" />
+    <link rel="stylesheet" href="./static/css/styles.css" />
+    <title></title>
+    <body>
+      <header>
+        <div class="row card-panel white lighten-2 z-depth-3">
+          <div class="col s12">
+            <h1 class="center">Fake Buster</h1>
+          </div>
+        </div>
+      </header>
+      <main>
+        <div class="container">
+          <div class="input center row" style="margin-top:100px">
+            <form
+              action="/scrape"
+              class="col s4 offset-s4 z-depth-3 "
+              method="POST"
+            >
+              <div class="inner1 row">
+                <div class="input-field col s12">
+                  <input
+                    name="keyword"
+                    id="keyword"
+                    type="text"
+                    class="validate"
+                  />
+                  <label for="keyword">Keywords</label>
+                </div>
+              </div>
+              <div class="inner2 row">
+                <button
+                  id="search"
+                  class="btn waves-effect waves-light black white-text"
+                  type="submit"
+                  name="action"
+                >
+                  Scrape Articles
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </main>
+      <footer class="page-footer white">
+        <div class="footer-copyright white">
+          <div class="container center black-text">
+            Designed and Developed by Maneesh P, Suraj Nagendra S, Janifa M,
+            Fathima Shana Noory. © 2019
+          </div>
+        </div>
+      </footer>
+      <script type="text/javascript">
+        $("#search").click(function(e) {
+          $("#loading").show();
+        });
+        $(window).on("load", function() {
+          $("#loading").hide();
+        });
+      </script>
+    </body>
+    <div id="loading" class="center">
+      <img
+        id="loading-image"
+        src="../static/images/giphy.gif"
+        alt="Loading..."
+      />
+      <h4 id="message">Hang on tight! This might take a while...</h4>
+    </div>
+    <!-- Compiled and minified JavaScript -->
+    <script src="../static/js/materialize.min.js"></script>
+  </head>
+</html>

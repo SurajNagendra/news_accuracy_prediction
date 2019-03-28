@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="../static/css/materialize.min.css" />
+    <link rel="stylesheet" href="./static/css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card-panel grey z-depth-3">
+        <h4>News article stances</h4>
+        <form action="/analyze" class="col s12" method="POST">
+          <button
+            class="btn waves-effect waves-light black white-text right"
+            type="submit"
+            action="/stances"
+            method="POST"
+          >
+            Analyze
+          </button>
+        </form>
+      </div>
+    </div>
+    <!-- <div class="row">
+      {% for news in news_articles %}
+      <p>{{ news.title }}</p>
+      {% endfor %}
+    </div> -->
+    <div class="container">
+      <div class="row">
+        {% for i in range(1,(stances|length)) %}
+        <div class="col s12 m6 l6">
+          <div class="card grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">{{ i }}&nbsp{{ stances[i] }}</span>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <script src="../static/js/materialize.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script
+      src="http://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="../static/css/materialize.min.css" />
+    <link rel="stylesheet" href="./static/css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card-panel grey z-depth-3">
+        <h4>Related News articles</h4>
+        <form action="/stances" class="col s12" method="POST">
+          <button
+            class="btn waves-effect waves-light black white-text right"
+            type="submit"
+            action="/stances"
+            method="POST"
+          >
+            View Stances
+          </button>
+        </form>
+      </div>
+    </div>
+    <!-- <div class="row">
+      {% for news in news_articles %}
+      <p>{{ news.title }}</p>
+      {% endfor %}
+    </div> -->
+    <div class="container">
+      <div class="row">
+        {% for news in news_articles %}
+        <div class="col s12 m6 l6">
+          <div class="card grey darken-1">
+            <div class="card-image">
+              <img src="{{ news.image }}" style="height:300px;" />
+            </div>
+            <div class="card-content white-text">
+              <span class="card-title">{{ news.title[:35] }}...</span>
+              <p>{{ news.source.title }} &nbsp {{ news.date }}</p>
+            </div>
+            <div class="card-action">
+              <a href="{{ news.url }}">Read more</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <script src="../static/js/materialize.min.js"></script>
+    <script type="text/javascript">
+      $(window).on("load", function() {
+        $("#loading").hide();
+      });
+    </script>
+  </body>
+  <div id="loading">
+    <img id="loading-image" src="../static/images/giphy.gif" alt="Loading..." />
+    <h4 id="message">Almost done... Finishing up.</h4>
+  </div>
+</html>
